@@ -6,7 +6,6 @@ import connectDB from "./config/db.js";
 
 dotenv.config();
 
-
 const PORT = process.env.PORT || 3000;
 
 const app = express();
@@ -18,13 +17,20 @@ const app = express();
 //   })
 // );
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://leadmanagementdashboard.netlify.app",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: false,
+  })
+);
 
 app.use(express.json());
 
 app.use("/api/leads", leadRoutes);
-
-
 
 connectDB()
   .then(() => {
