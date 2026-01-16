@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:8000/api/leads";
+const API_URL = "https://lead-management-dashboard-e54s.onrender.com/api/leads";
+
 
 export default function LeadDetails() {
   const { id } = useParams();
