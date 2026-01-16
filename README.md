@@ -56,10 +56,9 @@ The application allows basic authentication, viewing and managing leads with sea
 
 Create a `.env` file in the backend folder:
 
-```PORT=8000
+   PORT=8000
    MONGO_URI=your_mongodb_connection_string
 
-```
 
 Start the backend server:
 
@@ -77,6 +76,7 @@ Start the backend server:
   Frontend will run on:
   http://localhost:5173
 ````
+----
 
 # Database Seeding
 
