@@ -33,19 +33,20 @@ export default function LeadsPage() {
         `${API_URL}?page=${page}&limit=10&search=${search}&status=${status}`
       );
       const data = await res.json();
+      const leadsData = data.leads || [];
 
-      setLeads(data.leads);
-      setTotalPages(data.totalPages);
-      setTotalLeads(data.total);
+      setLeads(leadsData);
+      setTotalPages(data.totalPages || 1);
+      setTotalLeads(data.total || 0);
 
       //analytics calculations
-      const converted = data.leads.filter(
+      const converted = leadsData.filter(
         (lead) => lead.status === "converted"
       ).length;
       setConvertedLeads(converted);
 
       const counts = {};
-      data.leads.forEach((lead) => {
+      leadsData.forEach((lead) => {
         counts[lead.status] = (counts[lead.status] || 0) + 1;
       });
       setStatusCounts(counts);

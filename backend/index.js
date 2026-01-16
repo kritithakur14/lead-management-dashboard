@@ -24,6 +24,8 @@ app.use(express.json());
 
 app.use("/api/leads", leadRoutes);
 
+
+
 connectDB()
   .then(() => {
     app.listen(PORT, () => {
